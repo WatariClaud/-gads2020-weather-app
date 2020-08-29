@@ -6,7 +6,7 @@
     {
       "src": "logo-xl.png",
       "type": "image/png",
-      "sizes": "182x173"
+      "sizes": "192x192"
     }
   ],
   "start_url": "/?source=pwa",
@@ -20,14 +20,14 @@
       "short_name": "Today",
       "description": "View weather information for today",
       "url": "/today?source=pwa",
-      "icons": [{ "src": "logo-xl.png", "sizes": "182x173" }]
+      "icons": [{ "src": "logo-xl.png", "sizes": "192x192" }]
     },
     {
       "name": "How's weather tomorrow?",
       "short_name": "Tomorrow",
       "description": "View weather information for tomorrow",
       "url": "/tomorrow?source=pwa",
-      "icons": [{ "src": "logo-xl.png", "sizes": "182x173" }]
+      "icons": [{ "src": "logo-xl.png", "sizes": "192x192" }]
     }
   ]
 }
