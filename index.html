@@ -13,11 +13,12 @@
             <p class = "r">Find real time weather reports for any city</p>
             <form action="" class="form-box">
                 <div id = "form-cover">
-                    <input type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox">
-                    <input type="submit" value="Go&ensp;&#10095;" class="btn">
+                    <input type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox" id = "inputbox">
+                    <input type="submit" value="Go&ensp;&#10095;" class="btn" id = "search-btn">
                 </div>
             </form>
             <div id = "res">
+                <div id = "load-container" class = "hidden"><div id="loader"></div></div>
                 <table>
                     <tr>
                         <tbody>
@@ -81,5 +82,18 @@
         </div>
     </div>
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./app/sw.js', {scope: './app/sw/'})
+        .then((reg) => {
+        // registration worked
+        console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch((error) => {
+        // registration failed
+        console.log('Registration failed with ' + error);
+        });
+    }
+</script>
 <script src="./main.js"></script>
+<script src="./app/sw.js"></script>
 </html>
