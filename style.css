@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6, p, a, button, input {
 #res {
     color: rgb(151, 150, 150);
     width: 35%;
-    min-width: 250px;
+    min-width: 200px;
     position: absolute;
     top: 0;
     right: 0;
@@ -105,6 +105,9 @@ table strong {
     display: inline;
     margin-right: 10rem;
 }
+.exit-btn {
+    display: none;
+}
 
 @media screen and (max-width: 900px) {
     #content {
@@ -118,6 +121,132 @@ table strong {
         font-size: 0.9rem;
     }
     #description h4 {
+        margin-right: 8rem;
+    }
+    #form-cover {
+        width: 80%;
+    }
+    .inputbox, .btn {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 768px)  {
+    #description h4 {
         margin-right: 6rem;
+    }
+    #res {
+        width: 95%;
+        left: 0;
+        margin: 2rem 0;
+        background: rgb(24, 21, 21);
+        display: none;
+    }
+    .exit-btn {
+        display: block;
+        margin-top: 40px;
+        background: rgb(163, 24, 24);
+        border: 1px solid rgb(163, 24, 24);
+        border-radius: 7px;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        cursor: pointer;
+        opacity: 0.8;
+    }
+    .btn {
+        padding: 0;
+    }
+    .form-box {
+        width: 70%;
+    }
+    .inputbox {
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 690px) {
+    #description {
+        padding: 1rem 3rem;
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 640px) {
+    #description {
+        padding: 7px;
+        text-align: center;
+    }
+    #description h4 {
+        display: block;
+        margin-bottom: 13px;
+        font-size: 0.5rem;
+        margin-right: 0;
+    }
+    #res {
+        width: 94%;
+    }
+}
+@media screen and (max-width: 540px) {
+    #res {
+        width: 93%;
+    }
+    .form-box {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 500px) {
+    #res {
+        width: 93%;
+        left: 0;
+    }
+    #content {
+        width: 85%;
+    }
+    .form-box {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 450px) {
+    #res {
+        width: 92%;
+    }
+    #content {
+        width: 100%;
+        margin: 2rem auto;
+    }
+    .h1 {
+        font-size: 1.3rem;
+    }
+    .r {
+        font-size: 1rem;
+        width: 60%;
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 390px) {
+    #res {
+        width: 91%;
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 360px) {
+    #res {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 320px) {
+    #res {
+        width: 89%;
+        font-size: 0.8rem;
+        height: 300px;
+    }
+    .inputbox, .btn {
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 300px) {
+    #res {
+        width: 87%;
+        font-size: 0.7rem;
+    }
+    .r {
+        width: 80%;
     }
 }
