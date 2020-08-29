@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Claud's Weather App - GADS2020</title>
+</head>
+<body>
+    <div id = "container">
+        <div id = "content">
+            <h1 class = "h1">Claud's weather app</h1>
+            <p>Find real time weather reports for any city</p>
+            <form action="" class="form-box">
+                <div id = "form-cover">
+                    <input type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox">
+                    <input type="submit" value="Go&ensp;&#10095;" class="btn">
+                </div>
+            </form>
+            <div id = "res">
+                <table>
+                    <tr>
+                        <tbody>
+                            <tr>
+                                <td id = "city-title">
+                                    <strong>Current city:</strong>
+                                </td>
+                                <td id = "city-content">
+                                    <strong>Nairobi</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id = "weather-title">
+                                    Weather condition:
+                                </td>
+                                <td id = "weather-content">
+                                    Sunny
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id = "tep-title">
+                                    Temperature:
+                                </td>
+                                <td id = "temp-content">
+                                    36
+                                </td>
+                            </tr>
+                        </tbody>
+                    </tr>
+                </table><hr><br>
+                <p>Expected forecast for the next one day</p>
+                <table>
+                    <tr>
+                        <tbody>
+                            </tr>
+                            <tr>
+                                <td id = "weather-title">
+                                    Weather condition:
+                                </td>
+                                <td id = "weather-content">
+                                    Cloudy
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id = "tep-title">
+                                    Temperature:
+                                </td>
+                                <td id = "temp-content">
+                                    32
+                                </td>
+                            </tr>
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id = "description">
+            <h4>This app is made with <span class="span-txt">&hearts;</span> using JavaScript</h4>
+            <h4>&copy;<span id = "date-year"></span>&emsp;<a href = "https://claudwatari.herokuapp.com">Claud Watari</a></h4>
+        </div>
+    </div>
+</body>
+<script src="./main.js"></script>
+</html>
