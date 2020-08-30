@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6, p, a, button, input {
     position: fixed;
     top: 0;
     right: 0;
-    margin: 1rem;
+    margin: 1rem 3rem;
     color: rgb(151, 150, 150);
     cursor: pointer;
     z-index: 2;
@@ -29,17 +29,51 @@ h1, h2, h3, h4, h5, h6, p, a, button, input {
     position: fixed;
     top: 0;
     right: 0;
-    width: 70%;
-    height: 100%;
+    width: 90%;
+    height: 80vh;
     background: rgb(24, 21, 21);
     border-left: 1px solid rgb(151, 150, 150);
-    padding: 5rem 1rem;
+    padding: 2rem 1rem;
     padding-bottom: 10px;
+    overflow-y: auto;
     z-index: 1;
 }
-#menu-content p {
+#menu-content::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+#menu-content::-webkit-scrollbar-track {
+    background: #a0a0a0;
+}
+/* Handle */
+#menu-content::-webkit-scrollbar-thumb {
+    background: rgb(176, 179, 0);
+}
+/* Handle on hover */
+#menu-content::-webkit-scrollbar-thumb:hover {
+    background: rgb(176, 179, 0);
+}
+#menu-content::-webkit-scrollbar-button {
+    background: rgb(24, 21, 21);
+    border: 1px solid rgb(255, 255, 255);
+}
+#menu-content p, #user-search-list {
     color: rgb(151, 150, 150);
-
+}
+#user-search-list {
+    margin-top: 50px;
+}
+#user-search-list li {
+    display: block;
+    border: 1px solid rgb(151, 150, 150);
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 70%;
+    cursor: pointer;
+}
+#user-search-list li h4 {
+    color: rgb(24, 163, 36);
 }
 .slide-out {
     animation: slide-in 0.5s forwards;
@@ -262,6 +296,9 @@ table strong {
     }
     .inputbox {
         padding-left: 0;
+    }
+    #menu {
+        margin: 1rem 2rem;
     }
 }
 @media screen and (max-width: 690px) {

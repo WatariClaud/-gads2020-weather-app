@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator) {
 }
 
 document.querySelector('#date-year').textContent = new Date().getFullYear();
-const searchResultsArray = [];
+let searchResultsArray;
 const res =  document.querySelector('#res');
 const resContent =  document.querySelector('#res-content');
 const cityName =  document.querySelector('#city-title');
@@ -29,6 +29,10 @@ const locationsList = document.querySelector('#locations');
 const exitRes = document.querySelector('.exit-btn');
 const menu = document.querySelector('#menu');
 const menuContent = document.querySelector('#menu-content');
+const userSearchListBox = document.querySelector('#user-search-list');
+
+const userQueriesList = localStorage.getItem('userQueries');
+const userQueriesListParsed = JSON.parse(userQueriesList);
 
 const loadRes = () => {
     resContent.classList.remove('hidden')
@@ -38,6 +42,17 @@ const loadEvent = () => {
    setTimeout(loadRes, 1500);
 }
 window.addEventListener('load', loadEvent);
+
+const checkEmptyList = () => {
+    if(userQueriesList) {
+        if(userQueriesListParsed.length > 0) searchResultsArray = userQueriesListParsed;
+        else searchResultsArray = [];
+    } else {
+        menuContent.innerHTML = `<p><br><br>Your search history appears here.<br><br>You don't have any searches yet.</p>`;
+        searchResultsArray = [];
+    }
+};
+
 const getCurrentWeatherDefault = () => {
     fetch('http://ip-api.com/json')
     .then((r) => r.json())
@@ -50,7 +65,6 @@ const getCurrentWeatherDefault = () => {
             tempContent.textContent = `${r.main.temp}°C`;
             humidityContent.textContent = `${r.main.humidity}%`;
             descriptionContent.textContent = `${r.weather[0].description}`;
-            // tempContentLow.textContent = `${r.main.temp_min}°C`;
             if(r.rain) atmTitle.textContent = 'Rain:', atmContent.textContent = `${r.rain['1h']} mm`;
             if(r.wind) atmTitle.textContent = 'Wind:', atmContent.textContent = `${r.wind['speed']} m/s`;
          })
@@ -69,8 +83,39 @@ const getListOfLocations = () => {
 getCurrentWeatherDefault();
 getListOfLocations();
 
+const showRecentList = () => {
+    if(userQueriesListParsed && userQueriesListParsed.length > 0) {
+        return userQueriesListParsed.reverse().forEach((listItem) => {
+            if(listItem.hasOwnProperty('wind')) {
+                userSearchListBox.innerHTML += `
+                <li>
+                    <h4>${listItem.name}, ${listItem.sys.country}</h4>
+                    <p><strong>Weather condition:</strong> ${listItem.weather[0].main}</p>
+                    <p><strong>Temperature:</strong> ${listItem.main.temp}°C</p>
+                    <p><strong>Wind:</strong> ${listItem.main.temp}°C</p>
+                    <p><strong>Humidity:</strong> ${listItem.main.humidity}%</p>
+                    <p><strong>Description:</strong> ${listItem.weather[0].description}</p>
+                </li>`;
+            } else if(listItem.hasOwnProperty('rain')) {
+                userSearchListBox.innerHTML += `
+                <li>
+                    <h4>${listItem.name}, ${listItem.sys.country}</h4>
+                    <p><strong>Weather condition:</strong> ${listItem.weather[0].main}</p>
+                    <p><strong>Temperature:</strong> ${listItem.main.temp}°C</p>
+                    <p><strong>Rain:</strong> ${listItem.main.temp}mm</p>
+                    <p><strong>Humidity:</strong> ${listItem.main.humidity}%</p>
+                    <p><strong>Description:</strong> ${listItem.weather[0].description}</p>
+                </li>`;
+            }
+        });
+    }
+};
+
+showRecentList();
+
 const showRes = (event) => {
     event.preventDefault();
+    checkEmptyList();
     if(searchBox.value === '' || !searchBox.value) return searchBox.classList.add('err'), searchBox.focus(), false;
     res.style.display = 'block';
     resContent.classList.add('hidden')
@@ -81,6 +126,8 @@ const showRes = (event) => {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchBox.value}&units=metric&APPID=503ddc3764a990cdaff00121f6840069`)
     .then(result => result.json())
     .then(result => {
+        searchResultsArray.push(result);
+        localStorage.setItem('userQueries', JSON.stringify(searchResultsArray));
         cityQuery = result.name;
         cityTitle.textContent = 'Result for:'
         cityContent.textContent = `${cityQuery}, ${result.sys.country}`;
