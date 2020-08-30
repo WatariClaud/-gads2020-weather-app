@@ -23,7 +23,7 @@ PS: This weather information will be a determinant if the event will hold or not
 
 #### More Information on this product:
 
-This product has been created using HTML5/CSS3 and VanillaJS (no frameworks). I have hardcoded everything from scratch in regards to the User Interface.
-All frontend code is Intellectual Property of the author, that is, the owner of this repo.
+This product has been created using HTML5/CSS3 and VanillaJS (no frameworks). I have hardcoded everything from scratch in regards to the User Interface & the scripting.
+All code is Intellectual Property of the author, that is, the owner of this repo.
 
-The product is to be hosted on Firebase, and will be available on a link to be provided in later commits.
+The product is hosted on firebase and is available using the link https://weatherapp-byclaud-970ac.web.app/
