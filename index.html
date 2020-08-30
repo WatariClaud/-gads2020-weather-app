@@ -10,72 +10,97 @@
 </head>
 <body>
     <div id = "container">
+        <div id = "menu">
+            <span>_</span>
+            <span>_</span>
+            <span>_</span>
+        </div>
+        <div id = "menu-content" class = "slide-out h hidden">
+            <h4>You can see your weather search history here:</h4>
+            <p>Sorted from recent to oldest</p>
+            <ul id = "user-search-list"></ul>
+        </div>
         <div id = "content">
             <h1 class = "h1">Claud's weather app</h1>
             <p class = "r">Find real time weather reports for any city</p>
             <form action="" class="form-box">
                 <div id = "form-cover">
-                    <input type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox" id = "inputbox">
+                    <input list="locations" type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox" id = "inputbox">
+                    <datalist id="locations"></datalist>
                     <input type="submit" value="Go&ensp;&#10095;" class="btn" id = "search-btn">
                 </div>
             </form>
             <div id = "res">
-                <div id = "load-container" class = "hidden"><div id="loader"></div></div>
-                <table>
-                    <tr>
-                        <tbody>
-                            <tr>
-                                <td id = "city-title">
-                                    <strong>Current city:</strong>
-                                </td>
-                                <td id = "city-content">
-                                    <strong>Nairobi</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id = "weather-title">
-                                    Weather condition:
-                                </td>
-                                <td id = "weather-content">
-                                    Sunny
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id = "tep-title">
-                                    Temperature:
-                                </td>
-                                <td id = "temp-content">
-                                    36
-                                </td>
-                            </tr>
-                        </tbody>
-                    </tr>
-                </table><hr><br>
-                <p>Expected forecast for the next one day</p>
-                <table>
-                    <tr>
-                        <tbody>
-                            </tr>
-                            <tr>
-                                <td id = "weather-title">
-                                    Weather condition:
-                                </td>
-                                <td id = "weather-content">
-                                    Cloudy
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id = "tep-title">
-                                    Temperature:
-                                </td>
-                                <td id = "temp-content">
-                                    32
-                                </td>
-                            </tr>
-                        </tbody>
-                    </tr>
-                </table>
-            <button class = "exit-btn">Exit</button>
+                <div id = "load-container"><div id="loader"></div></div>
+                <div id = "res-content" class = "hidden">
+                    <table>
+                        <tr>
+                            <tbody>
+                                <tr>
+                                    <td id = "city-title">
+                                        <strong>Current city:</strong>
+                                    </td>
+                                    <td id = "city-content"> </td>
+                                </tr>
+                                <tr>
+                                    <td id = "weather-title">
+                                        <strong>Weather condition:&emsp;</strong>
+                                    </td>
+                                    <td id = "weather-content"></td>
+                                </tr>
+                                <tr>
+                                    <td id = "temp-title">
+                                        <strong>Temperature:</strong>
+                                    </td>
+                                    <td id = "temp-content"></td>
+                                </tr>
+                                <tr>
+                                    <td id = "atm-title">
+                                        <strong></strong>
+                                    </td>
+                                    <td id = "atm-content"></td>
+                                </tr>
+                                <tr>
+                                    <td id = "humidity-title">
+                                        <strong>Humidity:</strong>
+                                    </td>
+                                    <td id = "humidity-content"></td>
+                                </tr>
+                                <tr>
+                                    <td id = "description-title">
+                                        <strong>Description:</strong>
+                                    </td>
+                                    <td id = "description-content"></td>
+                                </tr>
+                            </tbody>
+                        </tr>
+                    </table><hr><br>
+                    <table class = "hidden">
+                        <p class = "hidden">Expected forecast for the next one day</p>
+                        <tr>
+                            <tbody>
+                                </tr>
+                                <tr>
+                                    <td id = "weather-title">
+                                        Weather condition:
+                                    </td>
+                                    <td id = "weather-content">
+                                        Cloudy
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id = "tep-title">
+                                        Temperature:
+                                    </td>
+                                    <td id = "temp-content">
+                                        32
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </tr>
+                    </table>
+                    <button class = "exit-btn">Exit</button>
+                </div>
             </div>
         </div>
         <div id = "description">

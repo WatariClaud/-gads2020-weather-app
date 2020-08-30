@@ -16,6 +16,95 @@ h1, h2, h3, h4, h5, h6, p, a, button, input {
 .h1 {
     font-size: 2rem;
 }
+#menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem 3rem;
+    color: rgb(151, 150, 150);
+    cursor: pointer;
+    z-index: 2;
+}
+#menu-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 80vh;
+    background: rgb(24, 21, 21);
+    border-left: 1px solid rgb(151, 150, 150);
+    padding: 2rem 1rem;
+    padding-bottom: 10px;
+    overflow-y: auto;
+    z-index: 1;
+}
+#menu-content::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+#menu-content::-webkit-scrollbar-track {
+    background: #a0a0a0;
+}
+/* Handle */
+#menu-content::-webkit-scrollbar-thumb {
+    background: rgb(176, 179, 0);
+}
+/* Handle on hover */
+#menu-content::-webkit-scrollbar-thumb:hover {
+    background: rgb(176, 179, 0);
+}
+#menu-content::-webkit-scrollbar-button {
+    background: rgb(24, 21, 21);
+    border: 1px solid rgb(255, 255, 255);
+}
+#menu-content p, #user-search-list {
+    color: rgb(151, 150, 150);
+}
+#user-search-list {
+    margin-top: 50px;
+}
+#user-search-list li {
+    display: block;
+    border: 1px solid rgb(151, 150, 150);
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 70%;
+    cursor: pointer;
+}
+#user-search-list li h4 {
+    color: rgb(24, 163, 36);
+}
+.slide-out {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+.slide-in {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+.h {
+    visibility: collapse;
+}
+@keyframes slide-in {
+    100% { transform: translateX(100%); }
+}
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(100%); }
+}  
+@keyframes slide-out {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+}
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(0%); }
+}
+#menu span {
+    display: block;
+    font-size: 3.4rem;
+    margin-top: -50px;
+}    
 #container {
     position: absolute;
     top: 0;
@@ -68,12 +157,13 @@ h1, h2, h3, h4, h5, h6, p, a, button, input {
 }
 #res {
     color: rgb(151, 150, 150);
-    width: 35%;
+    width: 36%;
     min-width: 200px;
+    min-height: 250px;
     position: absolute;
     top: 0;
     right: 0;
-    margin: 6rem 0;
+    margin: 4rem 0;
     text-align: left;
     /* border: 1px solid rgb(151, 150, 150); */
     border-radius: 7px;
@@ -86,7 +176,7 @@ table strong {
     color: rgb(24, 163, 36);
 }
 #city-content {
-    line-height: 500%;
+    line-height: 200%;
 }
 #description {
     position: fixed;
@@ -121,6 +211,15 @@ table strong {
     left: 0;
     top: 0;
 }
+#weather-content, #temp-title {
+    line-height: 300%;
+}
+#temp-title {
+    line-height: 200%;
+}
+#atm-title {
+    line-height: 300%;
+}
 #loader {
     margin: 100px auto;
     border: 7px solid #f3f3f3;
@@ -130,6 +229,15 @@ table strong {
     height: 70px;
     animation: spin 2s linear infinite;
     position: relative;
+}
+#description-title {
+    line-height: 400%;
+}
+#description-content {
+    text-transform: capitalize;
+}
+.err::placeholder {
+    color: rgb(163, 24, 24);
 }
       
 @keyframes spin {
@@ -188,6 +296,9 @@ table strong {
     }
     .inputbox {
         padding-left: 0;
+    }
+    #menu {
+        margin: 1rem 2rem;
     }
 }
 @media screen and (max-width: 690px) {
