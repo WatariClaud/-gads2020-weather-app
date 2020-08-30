@@ -1,12 +1,10 @@
 const cacheName = 'v2';
 
 self.addEventListener('install', (event) => {
-    console.log('Service worker installed.');
 });
 
 self.addEventListener('activate', (event) => {
     console.log('');
-    console.log('Service worker activated');
     // remove old caches
     event.waitUntil(
         caches.keys()
@@ -15,7 +13,6 @@ self.addEventListener('activate', (event) => {
                 return Promise.all(
                     cacheNames.map(cache => {
                         if(cache !== cacheName) {
-                            console.log('Clearing old cache');
                             return caches.delete(cache);
                         }
                     })
@@ -26,8 +23,6 @@ self.addEventListener('activate', (event) => {
 })
 self.addEventListener('fetch', (event) => {
     // log all the network requests trmrg;lhtrp
-    console.log(event.request.url);
-    console.log('Fetching cache...');
     event.respondWith(
         fetch(event.request)
         .then(res => {
