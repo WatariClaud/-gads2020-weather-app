@@ -1,0 +1,33 @@
+{
+  "short_name": "Weather App by Claud",
+  "name": "Weather App by Claud - open weather API",
+  "description": "Open weather API search",
+  "icons": [
+    {
+      "src": "logo-xl.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#181815",
+  "display": "minimal-ui",
+  "scope": "/",
+  "theme_color": "#181815",
+  "shortcuts": [
+    {
+      "name": "How's weather today?",
+      "short_name": "Today",
+      "description": "View weather information for today",
+      "url": "/today?source=pwa",
+      "icons": [{ "src": "logo-xl.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "How's weather tomorrow?",
+      "short_name": "Tomorrow",
+      "description": "View weather information for tomorrow",
+      "url": "/tomorrow?source=pwa",
+      "icons": [{ "src": "logo-xl.png", "sizes": "192x192" }]
+    }
+  ]
+}
