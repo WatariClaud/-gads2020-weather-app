@@ -15,7 +15,8 @@
             <p class = "r">Find real time weather reports for any city</p>
             <form action="" class="form-box">
                 <div id = "form-cover">
-                    <input type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox" id = "inputbox">
+                    <input list="locations" type="search" name="userquery" id="userquery" placeholder="Type city to search&hellip;" class = "inputbox" id = "inputbox">
+                    <datalist id="locations"></datalist>
                     <input type="submit" value="Go&ensp;&#10095;" class="btn" id = "search-btn">
                 </div>
             </form>
@@ -29,13 +30,11 @@
                                     <td id = "city-title">
                                         <strong>Current city:</strong>
                                     </td>
-                                    <td id = "city-content">
-                                        <strong></strong>
-                                    </td>
+                                    <td id = "city-content"> </td>
                                 </tr>
                                 <tr>
                                     <td id = "weather-title">
-                                        Weather condition:
+                                        <strong>Weather condition:&emsp;</strong>
                                     </td>
                                     <td id = "weather-content"></td>
                                 </tr>
@@ -43,18 +42,7 @@
                                     <td id = "temp-title">
                                         <strong>Temperature:</strong>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td id = "temp-title">
-                                        Low:
-                                    </td>
-                                    <td id = "temp-content-hi"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "tep-title">
-                                        High:
-                                    </td>
-                                    <td id = "temp-content-low"></td>
+                                    <td id = "temp-content"></td>
                                 </tr>
                                 <tr>
                                     <td id = "atm-title">
@@ -62,11 +50,23 @@
                                     </td>
                                     <td id = "atm-content"></td>
                                 </tr>
+                                <tr>
+                                    <td id = "humidity-title">
+                                        <strong>Humidity:</strong>
+                                    </td>
+                                    <td id = "humidity-content"></td>
+                                </tr>
+                                <tr>
+                                    <td id = "description-title">
+                                        <strong>Description:</strong>
+                                    </td>
+                                    <td id = "description-content"></td>
+                                </tr>
                             </tbody>
                         </tr>
                     </table><hr><br>
-                    <p>Expected forecast for the next one day</p>
-                    <table>
+                    <table class = "hidden">
+                        <p class = "hidden">Expected forecast for the next one day</p>
                         <tr>
                             <tbody>
                                 </tr>
