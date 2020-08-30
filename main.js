@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
 }
 
 document.querySelector('#date-year').textContent = new Date().getFullYear();
+const searchResultsArray = [];
 const res =  document.querySelector('#res');
 const resContent =  document.querySelector('#res-content');
 const cityName =  document.querySelector('#city-title');
@@ -25,6 +26,9 @@ const atmContent = document.querySelector('#atm-content');
 const humidityContent = document.querySelector('#humidity-content');
 const descriptionContent = document.querySelector('#description-content');
 const locationsList = document.querySelector('#locations');
+const exitRes = document.querySelector('.exit-btn');
+const menu = document.querySelector('#menu');
+const menuContent = document.querySelector('#menu-content');
 
 const loadRes = () => {
     resContent.classList.remove('hidden')
@@ -68,6 +72,7 @@ getListOfLocations();
 const showRes = (event) => {
     event.preventDefault();
     if(searchBox.value === '' || !searchBox.value) return searchBox.classList.add('err'), searchBox.focus(), false;
+    res.style.display = 'block';
     resContent.classList.add('hidden')
     resLoader.classList.remove('hidden');
     
@@ -90,3 +95,21 @@ const showRes = (event) => {
     .catch(err => console.log(err));
 }
 searchBtn.addEventListener('click', showRes);
+
+const hideRes = () => {
+    res.style.display = 'none';
+}
+
+exitRes.addEventListener('click', hideRes);
+
+const toggleMenu = () => {
+    res.style.display = 'none';
+
+    const isOpen = menuContent.classList.contains('slide-in');
+
+    menuContent.classList.remove("h");
+
+    menuContent.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+}
+
+menu.addEventListener('click', toggleMenu);

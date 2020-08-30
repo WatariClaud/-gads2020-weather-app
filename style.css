@@ -16,6 +16,61 @@ h1, h2, h3, h4, h5, h6, p, a, button, input {
 .h1 {
     font-size: 2rem;
 }
+#menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    color: rgb(151, 150, 150);
+    cursor: pointer;
+    z-index: 2;
+}
+#menu-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    background: rgb(24, 21, 21);
+    border-left: 1px solid rgb(151, 150, 150);
+    padding: 5rem 1rem;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+#menu-content p {
+    color: rgb(151, 150, 150);
+
+}
+.slide-out {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+.slide-in {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+.h {
+    visibility: collapse;
+}
+@keyframes slide-in {
+    100% { transform: translateX(100%); }
+}
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(100%); }
+}  
+@keyframes slide-out {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+}
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(0%); }
+}
+#menu span {
+    display: block;
+    font-size: 3.4rem;
+    margin-top: -50px;
+}    
 #container {
     position: absolute;
     top: 0;
